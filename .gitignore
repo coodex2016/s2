@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# local proxy config
+/proxy.config.json
+
 # compiled output
 /dist
 /tmp
@@ -25,10 +28,6 @@ speed-measure-plugin.json
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 .history/*
 
 # misc

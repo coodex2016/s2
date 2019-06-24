@@ -1,5 +1,5 @@
 /**
- * This file includes polyfills needed by Angular and is loaded before the app.
+ * This file includes polyfills needed by Angular and is loaded before the ngAlainApp.
  * You can add your own extra polyfills to this file.
  *
  * This file is divided into 2 sections:
@@ -55,7 +55,7 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
+import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 
 /***************************************************************************************************

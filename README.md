@@ -12,9 +12,9 @@
 | -- commons | 通用组件、服务、指令等，与业务功能无关 |
 | -- globals | 跨模块（参见modules）复用服务、组件、指令、模块依赖等，例如跨模块复用的数据类型、功能等 |
 | -- modules | 业务模块，每个业务模块对应一个导航菜单项和一系列功能界面 |
-| -- environments | 环境变量，包括运行环境相关定义 |
 | -- products | 各个产品的根目录 |
 | -- styles | 皮肤的样式（less）目录。TODO 补充theme |
+| proxy.config.template.json | 不要修改，复制为`proxy.config.json`(不会被纳入git管理)，需要调试时，修改新文件即可 |
 
 ## 基于ng-alain的改造
 
@@ -32,6 +32,25 @@
 - step 2 多应用构建
   - `ng add ngx-build-plus@^8.0.0` 添加 `ngx-build-plus^8.0.0` 插件，用于。。。。
   - `scripts`目录中相关脚本，TODO: 注释
-- step 3 最小化应用
-  - products/demoApp
+- step 3 最小化应用 TODO: 脚本化
+  - products/demoApp，参见表一
+  - modules/demo-module
+  - cp src/commons/layout src/commons/s2/layout
+  - new src/globals/global_data.ts // 用来定义全局常量，各产品可选择性覆盖，参考[local_data.ts](src/products/demoApp/local_data.ts)
+  - TODO 完善
+  - 实践建议：
+    - git clone depth=1
+    - remove src/products/ngAlainApp
+    - remove src/commons/layout
+    
   
+### 表一
+
+| 文件 | 作用 |
+| --- | --- |
+| main.ts | app 入口文件 |
+| app.module.ts | app 应用的根模块，负责引入所需的Module |
+| app.component.ts | app 应用的根组件 |
+| routes.module.ts | app 根路由 |  
+| delon.modules.ts | delon 相关设置，用于@delon模块组件及服务的设置 |
+| local_data.ts | 本产品的常量设置 |

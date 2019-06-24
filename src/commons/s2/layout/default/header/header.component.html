@@ -1,0 +1,68 @@
+<!-- todo 参考ng-alain结构调整为s2logo，要求：logo可常量，放在assets目录下；-->
+<div class="alain-default__header-logo">
+    <a [routerLink]="['/']" class="alain-default__header-logo-link">
+        <img class="alain-default__header-logo-expanded" src="./assets/logo-full.svg" alt="{{settings.app.name}}"
+             style="max-height:40px;"/>
+        <img class="alain-default__header-logo-collapsed" src="./assets/logo.svg" alt="{{settings.app.name}}"
+             style="max-height:30px;"/>
+    </a>
+</div>
+<div class="alain-default__nav-wrap">
+    <ul class="alain-default__nav">
+        <!-- Menu -->
+        <!-- todo，换到左侧导航面板 -->
+        <li>
+            <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
+                <i nz-icon nzType="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
+            </div>
+        </li>
+
+
+    </ul>
+    <header-search *ngIf="settings.app.headers.search" class="alain-default__search"
+                   [toggleChange]="searchToggleStatus"></header-search>
+    <ul class="alain-default__nav">
+        <!-- Notify -->
+        <li>
+            <header-notify></header-notify>
+        </li>
+        <!-- Lock Page -->
+        <li class="hidden-mobile">
+            <div class="alain-default__nav-item" [routerLink]="['/lock']">
+                <i nz-icon nzType="lock"></i>
+            </div>
+        </li>
+        <!-- Task -->
+        <li class="hidden-mobile">
+            <header-task></header-task>
+        </li>
+        <!-- todo 作为另一种导航方式 -->
+        <!-- App Icons -->
+        <!--        <li class="hidden-mobile">-->
+        <!--            <header-icon></header-icon>-->
+        <!--        </li>-->
+        <!-- Settings -->
+        <li class="hidden-mobile">
+            <!-- todo :1、各menu item需要根据常量显示；2、日后扩展相关功能；3、增加换肤能力 -->
+            <div class="alain-default__nav-item" nz-dropdown nzTrigger="click" nzPlacement="bottomRight" [nzDropdownMenu]="menuTpl">
+                <i nz-icon nzType="setting"></i>
+            </div>
+            <nz-dropdown-menu #menuTpl="nzDropdownMenu">
+                <ul nz-menu>
+                    <li nz-menu-item>
+                        <header-fullscreen></header-fullscreen>
+                    </li>
+                    <li nz-menu-item>
+                        <header-storage></header-storage>
+                    </li>
+                    <li nz-menu-item>
+                        <header-i18n></header-i18n>
+                    </li>
+                </ul>
+            </nz-dropdown-menu>
+        </li>
+        <li class="hidden-mobile">
+            <header-user></header-user>
+        </li>
+    </ul>
+</div>

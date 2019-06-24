@@ -36,7 +36,7 @@
   - products/demoApp，参见表一
   - modules/demo-module
   - cp src/commons/layout src/commons/s2/layout
-  - new src/globals/global_data.ts // 用来定义全局常量，各产品可选择性覆盖，参考[local_data.ts](src/products/demoApp/local_data.ts)
+  - new src/globals/global_data.ts // 用来定义全局常量，各产品可选择性覆盖，参考[local-data.ts](src/products/demoApp/local-data.ts)
   - TODO 完善
   - 实践建议：
     - git clone depth=1
@@ -53,4 +53,9 @@
 | app.component.ts | app 应用的根组件 |
 | routes.module.ts | app 根路由 |  
 | delon.modules.ts | delon 相关设置，用于@delon模块组件及服务的设置 |
-| local_data.ts | 本产品的常量设置 |
+| local-data.ts | 本产品的常量设置，可对[global-data.ts](src/globals/global-data.ts)的部分内容产品化覆盖 |
+
+
+## change logs
+
+- 增加 `npm i --save @types/lodash` 支持object merge，用来进行globalData和localData的合并

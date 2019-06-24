@@ -3,7 +3,7 @@ const headers = {
     'github': true
 }
 
-export const global_data = {
+export const globalData = {
     'name': 'demo application',
     'app': {
         'title': 'title',

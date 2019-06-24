@@ -6,8 +6,9 @@ import { NzModalService, VERSION as VERSION_ZORRO } from 'ng-zorro-antd';
 import { NzIconService } from 'ng-zorro-antd/icon';
 import { ICONS_AUTO } from '../../style-icons-auto';
 import { ICONS } from '../../style-icons';
-import { global_data } from '@global/global-data';
-import { local_data } from './local_data';
+import { globalData } from '@global/global-data';
+import { localData } from './local-data';
+import { merge as mergeObject } from 'lodash';
 
 
 @Component({
@@ -27,8 +28,7 @@ export class AppComponent implements OnInit {
         private modalSrv: NzModalService,
     ) {
         iconSrv.addIcon(...ICONS_AUTO, ...ICONS);
-        // TODO 真 深拷贝
-        setting.setApp(Object.assign({}, global_data, local_data));
+        setting.setApp(mergeObject({}, globalData, localData));
         renderer.setAttribute(el.nativeElement, 'ng-alain-version', VERSION_ALAIN.full);
         renderer.setAttribute(el.nativeElement, 'ng-zorro-version', VERSION_ZORRO.full);
     }

@@ -14,11 +14,11 @@ import { registerLocaleData } from '@angular/common';
 // #region i18n services
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { I18NService } from '@core/i18n/i18n.service';
+import { I18NService } from '@core';
 // #region JSON Schema form (using @delon/form)
 import { JsonSchemaModule } from '@shared/json-schema/json-schema.module';
 import { SimpleInterceptor } from '@delon/auth';
-import { DefaultInterceptor } from '@core/net/default.interceptor';
+import { DefaultInterceptor } from '@core';
 import { DelonModule } from './delon.module';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';

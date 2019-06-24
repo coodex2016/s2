@@ -6,6 +6,7 @@
 
 | 目录 | 说明 |
 | --- | --- |
+| build | 多应用构建脚本 |
 | src | 源码目录 |
 | -- @concrete | 后台接口服务模块，由[concrete](https://github.com/coodex2016/concrete.coodex.org)生成，非必须。TODO 使用npm package管理 |
 | -- commons | 通用组件、服务、指令等，与业务功能无关 |
@@ -17,7 +18,7 @@
 
 ## 基于ng-alain的改造
 
-- step 1
+- step 1 基于ng-alain结构改造
   - mv src/app/\[core, layout, shared\]/i18n to src/commons/
   - mv src/commons/core/startup to src/app/core
   - modify src/commons/core/index.ts
@@ -28,4 +29,9 @@
   - [package.json](package.json)增加代理配置 `--proxy-config proxy.config.json`
   - mv src/app src/products/ngAlainApp // 调整成目标架构
   - modify angular.json的入口点
-
+- step 2 多应用构建
+  - `ng add ngx-build-plus@^8.0.0` 添加 `ngx-build-plus^8.0.0` 插件，用于。。。。
+  - `scripts`目录中相关脚本，TODO: 注释
+- step 3 最小化应用
+  - products/demoApp
+  

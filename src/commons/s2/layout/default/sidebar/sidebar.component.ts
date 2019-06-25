@@ -5,8 +5,13 @@ import { SettingsService } from '@delon/theme';
     selector: 'layout-sidebar',
     templateUrl: './sidebar.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent {
     constructor(public settings: SettingsService) {
+    }
+
+    toggleCollapsedSidebar() {
+        this.settings.setLayout('collapsed', !this.settings.layout.collapsed);
     }
 }

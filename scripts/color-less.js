@@ -10,18 +10,20 @@ const options = {
   stylesDir: path.join(root, './src'),
   antdStylesDir: path.join(root, './node_modules/ng-zorro-antd'),
   varFile: path.join(root, './scripts/var.less'),
-  mainLessFile: path.join(root, './src/styles.less'),
+  mainLessFile: path.join(root, './src/styles/styles.less'),
   themeVariables: ['@primary-color'],
   outputFilePath: path.join(root, './src/assets/alain-default.less'),
 };
-
 function genVarFile() {
   const ALLVAR = `
   @import '~@delon/theme/styles/default';
   @import '~@delon/theme/styles/layout/default/variable';
   @import '~@delon/theme/styles/layout/fullscreen/variable';
-  @import '../src/styles/theme.less';
+  @import '../src/styles/index.less';
   `;
+
+
+
 
   fs.writeFileSync(tmpVarFilePath, ALLVAR);
 }

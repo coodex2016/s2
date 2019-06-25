@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '@common/s2/theme/theme.service';
 
 @Component({
   selector: 'app-demo-component',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected themeService:ThemeService) { }
 
   ngOnInit() {
   }

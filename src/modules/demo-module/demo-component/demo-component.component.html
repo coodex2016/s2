@@ -1,3 +1,12 @@
+<page-header [action]="phActionTpl">
+    <ng-template #phActionTpl>
+        <button nz-button nzType="primary" class="mx-sm" (click)="themeService.changeTheme()">默认主题</button>
+        <button nz-button nzType="primary" class="mx-sm" (click)="themeService.changeTheme('red')">红色主题</button>
+        <button nz-button nzType="primary" class="mx-sm" (click)="themeService.changeTheme('cyan')">青色主题</button>
+        <button nz-button nzType="primary" class="mx-sm" (click)="themeService.changeTheme('black')">黑色主题</button>
+    </ng-template>
+</page-header>
+
 <p>
-  demo-component works!
+    demo-component works!
 </p>

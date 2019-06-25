@@ -28,7 +28,11 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.less"
+                            "src/styles/styles.less",
+                            "src/styles/theme.cyan.less",
+                            "src/styles/theme.default.less",
+                            "src/styles/theme.black.less",
+                            "src/styles/theme.red.less"
                         ],
                         "scripts": [
                             "node_modules/ajv/dist/ajv.bundle.js",
@@ -105,7 +109,11 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.less"
+                            "src/styles/styles.less",
+                            "src/styles/theme.cyan.less",
+                            "src/styles/theme.default.less",
+                            "src/styles/theme.black.less",
+                            "src/styles/theme.red.less"
                         ],
                         "scripts": [
                             "node_modules/ajv/dist/ajv.bundle.js",

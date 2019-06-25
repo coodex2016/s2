@@ -1,24 +1,19 @@
 const headers = {
-    'search' : true,
-    'github': true
-}
+    'search': true,
+    'github': true,
+};
 
 const theme = {
     'default': 'default',
     'merge': false,
-    'options' :{
-        'black':'theme.black',
-        'red':'theme.red',
-        'default':'theme.default',
-        'cyan':'theme.cyan',
+    'options': {},
+    'systemTheme': {
+        'black': 'theme.black',
+        'red': 'theme.red',
+        'default': 'theme.default',
+        'cyan': 'theme.cyan',
     },
-    'systemTheme':{
-        'black':'theme.black',
-        'red':'theme.red',
-        'default':'theme.default',
-        'cyan':'theme.cyan',
-    }
-}
+};
 
 export const globalData = {
     'name': 'demo application',
@@ -26,5 +21,5 @@ export const globalData = {
         'title': 'title',
     },
     headers,
-    theme
+    theme,
 };

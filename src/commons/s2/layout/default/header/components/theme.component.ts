@@ -67,6 +67,7 @@ export class HeaderThemeComponent {
             this.showThemeChange = false;
         }
     }
+
     change(type) {
         this.themeService.changeTheme(type);
         this.curCode = type;

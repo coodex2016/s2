@@ -4,10 +4,9 @@ import { DOCUMENT } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-    defaultTheme: String = 'default';
 
     constructor(private settings: SettingsService, @Inject(DOCUMENT) private doc: any) {
-        this.changeTheme(settings.layout.theme || this.defaultTheme);
+        this.changeTheme(settings.layout.theme || settings.app.theme);
     }
 
     changeTheme(className: string) {

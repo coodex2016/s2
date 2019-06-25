@@ -8,5 +8,6 @@ export const globalData = {
     'app': {
         'title': 'title',
     },
-    headers
+    headers,
+    'theme': 'default'
 };

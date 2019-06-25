@@ -30,6 +30,11 @@
 | -- styles | 皮肤的样式（less）目录。TODO 补充theme |
 | proxy.config.template.json | 不要修改，复制为`proxy.config.json`(不会被纳入git管理)，需要调试时，修改新文件即可 |
 
+## 扩展的功能
+
+- [ThemeService](src/commons/s2/theme/README.md): 该服务为应用提供多主题皮肤的换肤功能，默认提供了四种主题：蓝色（默认）、红色、青色、黑色
+
+
 ## 基于ng-alain的改造
 
 - step 1 基于ng-alain结构改造

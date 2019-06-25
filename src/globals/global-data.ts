@@ -5,8 +5,19 @@ const headers = {
 
 const theme = {
     'default': 'default',
-    'merge': true,
-    'options' :{}
+    'merge': false,
+    'options' :{
+        'black':'theme.black',
+        'red':'theme.red',
+        'default':'theme.default',
+        'cyan':'theme.cyan',
+    },
+    'systemTheme':{
+        'black':'theme.black',
+        'red':'theme.red',
+        'default':'theme.default',
+        'cyan':'theme.cyan',
+    }
 }
 
 export const globalData = {

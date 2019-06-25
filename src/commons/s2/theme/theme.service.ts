@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
 export class ThemeService {
 
     constructor(private settings: SettingsService, @Inject(DOCUMENT) private doc: any) {
-        this.changeTheme(settings.layout.theme || settings.app.theme);
+        this.changeTheme(settings.layout.theme || settings.app.theme.default);
     }
 
     changeTheme(className: string) {

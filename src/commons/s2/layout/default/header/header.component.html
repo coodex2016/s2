@@ -8,17 +8,6 @@
     </a>
 </div>
 <div class="alain-default__nav-wrap">
-    <ul class="alain-default__nav">
-        <!-- Menu -->
-        <!-- todo，换到左侧导航面板 -->
-        <li>
-            <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
-                <i nz-icon nzType="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
-            </div>
-        </li>
-
-
-    </ul>
     <header-search *ngIf="settings.app.headers.search" class="alain-default__search"
                    [toggleChange]="searchToggleStatus"></header-search>
     <ul class="alain-default__nav">

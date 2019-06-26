@@ -13,11 +13,13 @@ import { HeaderFullScreenComponent } from './default/header/components/fullscree
 import { HeaderI18nComponent } from './default/header/components/i18n.component';
 import { HeaderStorageComponent } from './default/header/components/storage.component';
 import { HeaderUserComponent } from './default/header/components/user.component';
+import { HeaderThemeComponent } from './default/header/components/theme.component';
 
 import { SettingDrawerComponent } from './default/setting-drawer/setting-drawer.component';
 import { SettingDrawerItemComponent } from './default/setting-drawer/setting-drawer-item.component';
 // passport
 import { LayoutPassportComponent } from './passport/passport.component';
+
 
 const SETTINGDRAWER = [SettingDrawerComponent, SettingDrawerItemComponent];
 
@@ -38,6 +40,7 @@ const HEADERCOMPONENTS = [
     HeaderI18nComponent,
     HeaderStorageComponent,
     HeaderUserComponent,
+    HeaderThemeComponent,
 ];
 
 const PASSPORT = [

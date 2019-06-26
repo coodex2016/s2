@@ -1,13 +1,19 @@
 const headers = {
-    'search' : true,
-    'github': true
-}
+    'search': true,
+    'github': true,
+};
 
 const theme = {
     'default': 'default',
-    'merge': true,
-    'options' :{}
-}
+    'merge': false,
+    'options': {},
+    'systemTheme': {
+        'black': 'theme.black',
+        'red': 'theme.red',
+        'default': 'theme.default',
+        'cyan': 'theme.cyan',
+    },
+};
 
 export const globalData = {
     'name': 'demo application',
@@ -15,5 +21,5 @@ export const globalData = {
         'title': 'title',
     },
     headers,
-    theme
+    theme,
 };

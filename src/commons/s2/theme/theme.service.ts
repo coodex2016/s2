@@ -11,10 +11,10 @@ export class ThemeService {
 
     changeTheme(className: string) {
         className = className || 'default';
-        if (className === this.settings.layout.theme) {
-            return;
-        }
-        this.settings.layout.theme = className;
+        // if (className === this.settings.layout.theme) {
+        //     return;
+        // }
+        this.settings.setLayout('theme', className);
         const bodyEl = document.querySelector('app-root');
         const removeArr = [];
         for (let i = 0; i < bodyEl.classList.length; i++) {

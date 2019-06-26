@@ -12,9 +12,9 @@
     <!--      <li nz-menu-item routerLink="/pro/account/settings">{{ 'menu.account.settings' | translate }}</li>-->
     <!--    </ul>-->
     <!--  </nz-dropdown>-->
-    <ul class="alain-default__nav">
+    <ul class="alain-default__nav alain-default__sidebar">
         <li>
-            <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
+            <div class="alain-default__nav-item alain-default__sidebar-item" (click)="toggleCollapsedSidebar()">
                 <i nz-icon nzType="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
             </div>
         </li>

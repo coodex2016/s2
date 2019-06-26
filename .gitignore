@@ -3,6 +3,10 @@
 # local proxy config
 /proxy.config.json
 
+# local change file
+/src/assets/alain-default.less
+/package-lock.json
+
 # compiled output
 /dist
 /tmp

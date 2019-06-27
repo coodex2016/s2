@@ -67,7 +67,7 @@ export class I18NService implements AlainI18NService {
     private _langs = Object.keys(LANGS).map(code => {
         const item = LANGS[code];
         return { code, text: item.text, abbr: item.abbr };
-    });
+    }).filter(lan => langs && langs[0] && langs.indexOf(lan.code) > -1 || true);
 
     constructor(
         settings: SettingsService,
@@ -76,14 +76,14 @@ export class I18NService implements AlainI18NService {
         private translate: TranslateService,
     ) {
         // `@ngx-translate/core` 预先知道支持哪些语言
-        const lans = this._langs.map(item => item.code);
-        translate.addLangs(lans);
-
-        const defaultLan = settings.layout.lang || translate.getBrowserLang();
-        if (lans.includes(defaultLan)) {
-            this._default = defaultLan;
+        const __lans = this._langs.map(item => item.code);
+        translate.addLangs(__lans);
+        const __defaultLan = settings.layout.lang || defaultLang || translate.getBrowserLang();
+        if (__lans.includes(__defaultLan)) {
+            this._default = __defaultLan;
+        } else {
+            this._default = __lans[0];
         }
-
         this.updateLangData(this._default);
     }
 

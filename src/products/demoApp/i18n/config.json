@@ -1,0 +1,5 @@
+{
+    "defaultLang": "en-US",
+    "langs": ["zh-TW","zh-CN"],
+    "modules": ["demo-module"]
+}

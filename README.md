@@ -33,6 +33,7 @@
 ## 扩展的功能
 
 - [ThemeService](src/commons/s2/theme/README.md): 该服务为应用提供多主题皮肤的换肤功能，默认提供了四种主题：蓝色（默认）、红色、青色、黑色
+- [i18n](src/commons/core/i18n/README.md): 该服务为应用提供多语言切换功能
 
 
 ## 基于ng-alain的改造

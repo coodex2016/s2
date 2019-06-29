@@ -6,6 +6,7 @@ import { environment } from '@env/environment';
 
 import { preloaderFinished } from '@delon/theme';
 import { hmrBootstrap } from '../../hmr';
+import { Router } from '@angular/router';
 
 preloaderFinished();
 
@@ -34,3 +35,4 @@ if (environment.hmr) {
 } else {
     bootstrap();
 }
+

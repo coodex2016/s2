@@ -1,7 +1,7 @@
-import { Component, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Inject, Injector, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { ALAIN_I18N_TOKEN, SettingsService, TitleService, VERSION as VERSION_ALAIN } from '@delon/theme';
+import { ALAIN_I18N_TOKEN, MenuService, SettingsService, TitleService, VERSION as VERSION_ALAIN } from '@delon/theme';
 import { NzModalService, VERSION as VERSION_ZORRO } from 'ng-zorro-antd';
 import { NzIconService } from 'ng-zorro-antd/icon';
 import { ICONS_AUTO } from '../../style-icons-auto';
@@ -12,6 +12,8 @@ import { merge as mergeObject } from 'lodash';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { I18NService } from '@core';
+import { menus } from './routes.module';
+import { ACLService } from '@delon/acl';
 
 
 @Component({
@@ -23,18 +25,23 @@ import { I18NService } from '@core';
 export class AppComponent implements OnInit {
     constructor(
         el: ElementRef,
-        renderer: Renderer2,
+        private renderer: Renderer2,
         private router: Router,
-        iconSrv: NzIconService,
-        setting: SettingsService,
+        private iconSrv: NzIconService,
         private titleSrv: TitleService,
         private modalSrv: NzModalService,
+
+        private menuService: MenuService,
+        private settingService: SettingsService,
+        private aclService: ACLService,
+        private titleService: TitleService,
+
         private httpClient: HttpClient,
         private translate: TranslateService,
         @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
     ) {
         iconSrv.addIcon(...ICONS_AUTO, ...ICONS);
-        setting.setApp(mergeObject({}, globalData, localData));
+        settingService.setApp(mergeObject({}, globalData, localData));
         renderer.setAttribute(el.nativeElement, 'ng-alain-version', VERSION_ALAIN.full);
         renderer.setAttribute(el.nativeElement, 'ng-zorro-version', VERSION_ZORRO.full);
     }
@@ -46,6 +53,18 @@ export class AppComponent implements OnInit {
             this.modalSrv.closeAll();
         });
         this.i18nHttp();
+
+        // 是否固定顶部菜单
+        this.settingService.setLayout(`fixed`, false);
+        // 是否折叠右边菜单
+        this.settingService.setLayout(`collapsed`, false);
+        this.menuService.resume();
+        this.menuService.add([{
+            text: '菜单导航',
+            group: true,
+            children: menus||[],
+        }]);
+        this.titleService.suffix = localData.headers.name;
     }
 
 

@@ -51,7 +51,7 @@ export function fnPageHeaderConfig(): PageHeaderConfig {
 export function fnDelonAuthConfig(): DelonAuthConfig {
     return {
         ...new DelonAuthConfig(),
-        login_url: '/passport/login',
+        login_url: '/login',
     };
 }
 

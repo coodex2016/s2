@@ -23,6 +23,11 @@ import { SharedModule } from '../../commons/shared';
 import { AppComponent } from './app.component';
 import { RoutesModule } from './routes.module';
 import { LayoutModule } from '@common/s2/layout/layout.module';
+import { SignModule } from '@module/sign/sign.module';
+import { StreamModule } from '@module/stream/stream.module';
+import { ReportModule } from '@module/report/report.module';
+import { DemoModuleModule } from '@module/demo-module/demo-module.module';
+import { AppInitService } from '@global/appinit.service';
 // import { StartupService } from './startup.service';
 
 const LANG = {
@@ -67,18 +72,18 @@ const GLOBAL_THIRD_MODULES = [];
 // #endregion
 
 // #region Startup Service
-// export function StartupServiceFactory(startupService: StartupService): Function {
-//     return () => startupService.load();
-// }
+ export function AppInitServiceFactory(appInitService: AppInitService): Function {
+     return () => appInitService.load();
+ }
 
 const APPINIT_PROVIDES = [
-    // StartupService,
-    // {
-    //     provide: APP_INITIALIZER,
-    //     useFactory: StartupServiceFactory,
-    //     deps: [StartupService],
-    //     multi: true,
-    // },
+    AppInitService,
+    {
+        provide: APP_INITIALIZER,
+        useFactory: AppInitServiceFactory,
+        deps: [AppInitService],
+        multi: true,
+    },
 ];
 // #endregion
 
@@ -90,11 +95,18 @@ const APPINIT_PROVIDES = [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        DelonModule.forRoot(),
+        DelonModule,
+
         CoreModule,
         SharedModule,
         LayoutModule,
         RoutesModule,
+
+        DemoModuleModule,
+        SignModule,
+        ReportModule,
+        StreamModule,
+
         ...I18NSERVICE_MODULES,
         ...FORM_MODULES,
         ...GLOBAL_THIRD_MODULES,

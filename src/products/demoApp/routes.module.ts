@@ -1,16 +1,53 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../../commons/shared';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutDefaultComponent } from '@common/s2/layout/default/default.component';
 import { DemoComponentComponent } from '@module/demo-module/demo-component/demo-component.component';
-import { DemoModuleModule } from '@module/demo-module/demo-module.module';
-
-const COMPONENTS = [
-];
-const COMPONENTS_NOROUNT = [];
+import { Menu } from '@delon/theme';
 
 
+export const menus: Menu[] = [
+        {
+            text: '流水',
+            group: true,
+            icon: { type: 'icon', value: 'database' },
+            'acl': ['ADMIN', 'USER'],
+            children: [
+                {
+                    text: '停车流水',
+                    link: '/stream/parking',
+                    acl: ['ADMIN', 'USER'],
+                },
+                {
+                    text: '财务流水',
+                    link: '/stream/finance',
+                    acl: 'ADMIN',
+                },
+            ],
+        },
+        {
+            text: '报表',
+            icon: { type: 'icon', value: 'database' },
+            acl: ['ADMIN', 'USER'],
+            children: [
+                {
+                    text: '停车报表',
+                    link: '/report/parking/list',
+                    acl: ['ADMIN', 'USER'],
+                },
+                {
+                    text: '财务报表',
+                    link: '/report/finance/list',
+                    acl: 'ADMIN',
+                },
+            ],
+        },
+        /*{
+            text: 'DEMO',
+            link: '/demo',
+            icon: { type: 'icon', value: 'appstore' }
+        }*/
+    ];
 const routes: Routes = [
     {
         path: '',
@@ -18,10 +55,16 @@ const routes: Routes = [
         // canActivate: [SimpleGuard],// TODO Guard 使用常量
         children: [
             { path: '', redirectTo: 'demo', pathMatch: 'full' },
-            { path: 'demo', component: DemoComponentComponent, data: { title: '仪表盘' } },
+           { path: 'demo', component: DemoComponentComponent, data: { title: '仪表盘' } },
             // { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
             // 业务子模块
             // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
+            // { path: 'sign', loadChildren: 'src/modules/sign/sign.module#SignModule' },
+            // { path: 'stream', loadChildren: 'src/modules/stream/stream.module#StreamModule' },
+            // { path: 'report', loadChildren: 'src/modules/report/report.module#ReportModule' },
+            { path: 'stream', loadChildren: './../../modules/stream/stream.module#StreamModule' },
+            { path: 'report', loadChildren: './../../modules/report/report.module#ReportModule' },
+
         ],
     },
     // // 全屏布局
@@ -48,13 +91,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [SharedModule,DemoModuleModule,RouterModule.forRoot(routes)],
-    declarations: [
-        ...COMPONENTS,
-        ...COMPONENTS_NOROUNT,
-    ],
-    exports:[RouterModule],
-    entryComponents: COMPONENTS_NOROUNT,
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class RoutesModule {
 }

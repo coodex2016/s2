@@ -5,7 +5,7 @@ import { ListComponent } from '@module/demo-module/child-module/list/list.compon
 
 const routes: Routes = [
     { path: 'list', component: ListComponent,
-        canActivate: [ ACLGuard ],data: { guard: ['ADMIN', 'USER'],title: '演示child-demo-列表' }},
+        canActivate: [ ACLGuard ],data: { guard: 'ADMIN',title: '演示child-demo-列表' }},
 ];
 
 @NgModule({

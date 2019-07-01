@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutDefaultComponent } from '@common/s2/layout/default/default.component';
 import { Menu } from '@delon/theme';
+import { ACLGuard } from '@delon/acl';
 export const menus: Menu[] = [
         {
             text: '演示',
@@ -18,7 +19,7 @@ export const menus: Menu[] = [
                 },
                 {
                     text: '演示child-demo',
-                    link: '/child',
+                    link: '/demo/child/list',
                     acl: 'ADMIN',
                 },
             ],
@@ -31,7 +32,8 @@ const routes: Routes = [
         // canActivate: [ACLGuard],// TODO Guard 使用常量
         children: [
             { path: '', redirectTo: 'demo', pathMatch: 'full' },
-            { path: 'demo', loadChildren: () => import('@module/demo-module/demo-module.module').then(m => m.DemoModuleModule) },
+            { path: 'demo', loadChildren: () => import('@module/demo-module/demo-module.module').then(m => m.DemoModuleModule),
+                canLoad: [ ACLGuard ],  data: {guard:  ['ADMIN', 'USER'], title: '演示child-demo' }},
            //{ path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
             // 业务子模块
         ],
